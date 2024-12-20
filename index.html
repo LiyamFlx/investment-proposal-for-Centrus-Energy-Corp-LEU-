@@ -69,26 +69,33 @@
             font-weight: bold;
             color: #008000;
         }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Investment Proposal: Centrus Energy Corp (LEU)</h1>
+        <h1>Investment Proposal: <a href="https://www.centrusenergy.com" target="_blank">Centrus Energy Corp (LEU)</a></h1>
 
         <!-- Executive Summary -->
         <div class="section">
             <h2>Executive Summary</h2>
-            <p>Centrus Energy Corp presents a compelling investment opportunity due to its <strong>strong fundamentals</strong> and <strong>positive growth prospects</strong> in the nuclear energy sector. The global transition to clean energy amplifies demand for enriched uranium, making Centrus a key player. The company's consistent revenue growth, undervaluation, and strong financial stability form the foundation of a <strong>bullish investment strategy</strong>.</p>
+            <p><a href="https://www.centrusenergy.com" target="_blank">Centrus Energy Corp</a> presents a compelling investment opportunity due to its <strong>strong fundamentals</strong> and <strong>positive growth prospects</strong> in the nuclear energy sector. The global transition to clean energy amplifies demand for enriched uranium, making Centrus a key player. The company's consistent revenue growth, undervaluation, and strong financial stability form the foundation of a <strong>bullish investment strategy</strong>.</p>
         </div>
 
         <!-- Real-Time Stock Data -->
         <div class="section stock-data" id="stock-data">
-            Loading real-time stock data for LEU...
+            Loading real-time stock data for <a href="https://finance.yahoo.com/quote/LEU" target="_blank">LEU</a>...
         </div>
 
         <!-- Recommendation -->
         <div class="section recommendation">
-            <p><strong>Recommendation:</strong> <span>YES</span> – Invest up to <strong>$100,000,000</strong> to capitalize on the projected 42% revenue growth over the next five years.</p>
+            <p><strong>Recommendation:</strong> <span>YES</span> – Invest up to <strong>$100,000,000</strong> to capitalize on the projected 42% revenue growth over the next five years. <a href="https://finance.yahoo.com/quote/LEU" target="_blank">Check Stock Details</a></p>
         </div>
 
         <!-- Valuation Metrics -->
@@ -211,7 +218,7 @@
 
                 const data = response.data;
                 stockDataElement.innerHTML = `
-                    Real-Time Stock Data for <strong>LEU</strong>:<br>
+                    Real-Time Stock Data for <strong><a href="https://finance.yahoo.com/quote/LEU" target="_blank">LEU</a></strong>:<br>
                     Current Price: <span>$${data.c.toFixed(2)}</span><br>
                     High Today: <span>$${data.h.toFixed(2)}</span><br>
                     Low Today: <span>$${data.l.toFixed(2)}</span><br>
