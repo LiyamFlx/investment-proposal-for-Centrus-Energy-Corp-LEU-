@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investment Proposal - Centrus Energy Corp (LEU)</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -59,6 +60,15 @@
         .negative-recommendation span {
             color: #d00000;
         }
+        .stock-data {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.1em;
+        }
+        .stock-data span {
+            font-weight: bold;
+            color: #008000;
+        }
     </style>
 </head>
 <body>
@@ -71,9 +81,14 @@
             <p>Centrus Energy Corp presents a compelling investment opportunity due to its <strong>strong fundamentals</strong> and <strong>positive growth prospects</strong> in the nuclear energy sector. The global transition to clean energy amplifies demand for enriched uranium, making Centrus a key player. The company's consistent revenue growth, undervaluation, and strong financial stability form the foundation of a <strong>bullish investment strategy</strong>.</p>
         </div>
 
+        <!-- Real-Time Stock Data -->
+        <div class="section stock-data" id="stock-data">
+            Loading real-time stock data for LEU...
+        </div>
+
         <!-- Recommendation -->
         <div class="section recommendation">
-            <p><strong>Recommendation:</strong> <span>YES</span> – Invest up to <strong>$100,000</strong> to capitalize on the projected 42% revenue growth over the next five years.</p>
+            <p><strong>Recommendation:</strong> <span>YES</span> – Invest up to <strong>$100,000,000</strong> to capitalize on the projected 42% revenue growth over the next five years.</p>
         </div>
 
         <!-- Valuation Metrics -->
@@ -182,6 +197,33 @@
     </div>
 
     <script>
+        // Fetch Real-Time Stock Data
+        const stockDataElement = document.getElementById('stock-data');
+
+        async function fetchStockData() {
+            try {
+                const response = await axios.get('https://finnhub.io/api/v1/quote', {
+                    params: {
+                        symbol: 'LEU',
+                        token: 'YOUR_API_KEY' // Replace with your actual API key
+                    }
+                });
+
+                const data = response.data;
+                stockDataElement.innerHTML = `
+                    Real-Time Stock Data for <strong>LEU</strong>:<br>
+                    Current Price: <span>$${data.c.toFixed(2)}</span><br>
+                    High Today: <span>$${data.h.toFixed(2)}</span><br>
+                    Low Today: <span>$${data.l.toFixed(2)}</span><br>
+                    Previous Close: <span>$${data.pc.toFixed(2)}</span>
+                `;
+            } catch (error) {
+                stockDataElement.innerHTML = '<strong>Error fetching stock data. Please try again later.</strong>';
+            }
+        }
+
+        fetchStockData();
+
         // Revenue Growth Chart
         const revenueGrowthCtx = document.getElementById('revenueGrowthChart').getContext('2d');
         new Chart(revenueGrowthCtx, {
